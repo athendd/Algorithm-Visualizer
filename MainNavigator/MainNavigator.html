@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="MainNavigator.css">
+    <script src="MainNavigator.js"></script> 
+    <!-- HOME PAGE -->
+    <script src="../HomePage/HomePage.js"></script>
+    <!-- BRUTE FORCE -->
+    <script src="../AlgorithmPages/BruteForce/BinaryTreeTraversal/BinaryTreeAnimation.js"></script>
+    <script src="../AlgorithmPages/BruteForce/BreadthFirstSearch/BFSAnimation.js"></script>
+    <script src="../AlgorithmPages/BruteForce/BubbleSort/BubbleSortAnimation.js"></script>
+    <script src="../AlgorithmPages/BruteForce/DepthFirstSearch/DFSAnimation.js"></script>
+    <script src="../AlgorithmPages/BruteForce/Heapsort/HeapsortAnimation.js"></script>
+    <script src="../AlgorithmPages/BruteForce/InsertionSort/InsertionSortAnimation.js"></script>
+    <script src="../AlgorithmPages/BruteForce/PageRank/PageRankAnimation.js"></script>
+    <script src="../AlgorithmPages/BruteForce/SelectionSort/SelectionSortAnimation.js"></script>
+    <!-- DIVIDE AND CONQUER -->
+    <script src="../AlgorithmPages/DivideAndConquer/BucketSort/BucketSortAnimation.js"></script>
+    <script src="../AlgorithmPages/DivideAndConquer/CountingSort/CountingSortAnimation.js"></script>
+    <script src="../AlgorithmPages/DivideAndConquer/MergeSort/MergeSortAnimation.js"></script>
+    <script src="../AlgorithmPages/DivideAndConquer/Quicksort/QuicksortAnimation.js"></script>
+    <script src="../AlgorithmPages/DivideAndConquer/RadixSort/RadixSortAnimation.js"></script>
+    <!-- DYNAMIC PROGRAMMING -->
+    <script src="../AlgorithmPages/DynamicProgramming/FibonacciSequence/FibonacciAnimation.js"></script>
+    <script src="../AlgorithmPages/DynamicProgramming/FloydWarshallShortestPath/FloydPathAnimation.js"></script>
+    <script src="../AlgorithmPages/DynamicProgramming/KnapsackProblem/KnapsackAnimation.js"></script>
+    <script src="../AlgorithmPages/DynamicProgramming/MaximumSumPath/MaxSumPathAnimation.js"></script>
+    <script src="../AlgorithmPages/DynamicProgramming/SlidingWindow/SlidingWindowAnimation.js"></script>
+    <!-- GREEDY -->
+    <script src="../AlgorithmPages/Greedy/DijkstraShortestPath/DijkstraPathAnimation.js"></script>
+    <script src="../AlgorithmPages/Greedy/PrimMinimumSpanningTree/PrimMinTreeAnimation.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer</title>
+</head>
+<body>
+    <!-- TOP CONTROL BAR -->
+    <div class="top-panel">
+        <div class="randomizeSizeLayout">
+            <p id="sizeWarningMessage">---</p>
+            <input type="number" class="input-box" id="randListSize" placeholder="Size" title="Set size of random list">
+            <button class="button" id="randomizeButton" title="Generate new random list">Randomize</button>
+        </div>
+        <div class="customInputLayout">
+            <p id="inputWarningMessage">---</p>
+            <input type="text" class="input-box" id="customInput" title="Enter custom input">
+        </div>
+        <label id="toggleLayout" class="switch" title="Set or unset custom input">
+            <input id="customInputToggle" type="checkbox">
+            <span class="slider round"></span>
+        </label>
+        <button class="button" id="playButton" title="Start animation">&#9658;</button>
+        <button class="button" id="pauseButton" title="Pause animation">||</button>
+        <button class="button" id="resetButton" title="Reset animation"><i class="fa fa-refresh"></i></button>
+        <button class="button" id="leftArrow" title="Go back 1 frame">&#9664;</button>
+        <button class="button" id="rightArrow" title="Go forward 1 frame">&#9654;</button>
+        <div class="progress-bar" id="progressBar" title="Progress bar (click to shift to specific frame)">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="slider-container">
+            <input id="speedSlider" title="Change animation speed" type="range" id="slider" min="0" max="100" value="50">
+        </div>
+    </div>
+
+    <!-- MAIN LAYOUT -->
+    <div class="layout">
+        <!-- LEFT ALGORITHM NAVIGATOR -->
+        <div class="accordion">
+            <div class="topnav">
+                <input type="text" placeholder="Search..." id="searchInput" onkeyup="filterSearchInput()">
+                <div class="dropdown" id="dropdown"></div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="selectAlgorithm('HomePage')">Home Page</div>
+            </div>
+    
+            <div class="accordion-item">
+                <div class="accordion-header">Brute Force</div>
+                <div class="accordion-content">
+                    <a href="#" onclick="selectAlgorithm('BinaryTree')">Binary Tree Traversal</a>
+                    <a href="#" onclick="selectAlgorithm('BFS')">Breadth-First Search</a>
+                    <a href="#" onclick="selectAlgorithm('BubbleSort')">Bubble Sort</a>
+                    <a href="#" onclick="selectAlgorithm('DFS')">Depth-First Search</a>
+                    <a href="#" onclick="selectAlgorithm('Heapsort')">Heapsort</a>
+                    <a href="#" onclick="selectAlgorithm('InsertionSort')">Insertion Sort</a>
+                    <a href="#" onclick="selectAlgorithm('PageRank')">Page Rank</a>
+                    <a href="#" onclick="selectAlgorithm('SelectionSort')">Selection Sort</a>
+                </div>
+            </div>
+    
+            <div class="accordion-item">
+                <div class="accordion-header">Divide and Conquer</div>
+                <div class="accordion-content">
+                    <a href="#" onclick="selectAlgorithm('BucketSort')">Bucket Sort</a>
+                    <a href="#" onclick="selectAlgorithm('CountingSort')">Counting Sort</a>
+                    <a href="#" onclick="selectAlgorithm('MergeSort')">Merge Sort</a>
+                    <a href="#" onclick="selectAlgorithm('Quicksort')">Quicksort</a>
+                    <a href="#" onclick="selectAlgorithm('RadixSort')">Radix Sort</a>
+                </div>
+            </div>
+    
+            <div class="accordion-item">
+                <div class="accordion-header">Dynamic Programming</div>
+                <div class="accordion-content">
+                    <a href="#" onclick="selectAlgorithm('Fibonacci')">Fibonacci Sequence</a>
+                    <a href="#" onclick="selectAlgorithm('FloydPath')">Floyd Warshall Shortest Path</a>
+                    <a href="#" onclick="selectAlgorithm('Knapsack')">Knapsack Problem</a>
+                    <a href="#" onclick="selectAlgorithm('MaxSumPath')">Maximum Sum Path</a>
+                    <a href="#" onclick="selectAlgorithm('SlidingWindow')">Sliding Window</a>
+                </div>
+            </div>
+    
+            <div class="accordion-item">
+                <div class="accordion-header">Greedy</div>
+                <div class="accordion-content">
+                    <a href="#" onclick="selectAlgorithm('DijkstraPath')">Dijkstra's Shortest Path</a>
+                    <a href="#" onclick="selectAlgorithm('PrimMinTree')">Prim's Minimum Spanning Tree</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MIDDLE ANIMATION DISPLAY PANELS -->
+        <div class="middle-panels" id="middlePanels">
+            <!-- Graph Visual -->
+            <div class="panel" id="graphVisual">
+                <canvas id="graphCanvas"></canvas>
+            </div>
+            <!-- Box-List Visual -->
+            <div class="panel" id="boxListVisual">
+                <canvas id="boxListCanvas"></canvas>
+            </div>
+            <!-- Step Log -->
+            <div class="panel-log" id="stepLog"></div>
+        </div>
+    
+        <!-- RIGHT INFO PANEL -->
+        <div class="right-panel">
+            <div class="tab">
+                <button id="descriptionButton" class="tablinks" onclick="openTab(event, 'description')">Description</button>
+                <button id="pseudocodeButton" class="tablinks" onclick="openTab(event, 'pseudocode')">Pseudocode</button>
+                <button id="referencesButton" class="tablinks" onclick="openTab(event, 'references')">References</button>
+            </div>
+            <div class="tabcontent" id="description">
+            </div>
+            <div class="tabcontent" id="pseudocode">
+            </div>
+            <div class="tabcontent" id="references">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
