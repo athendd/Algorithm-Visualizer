@@ -1,0 +1,11 @@
+1. Download a coding IDE that supports live server functionality (Visual Studio Code is recommended here)
+
+2. Download the Live Server extension (or a similar alternative) for the IDE of choice
+
+3. Open the Algorithm-Visualizer folder in the IDE
+
+4. Navigate to the MainNavigator.html file in the MainNavigator folder
+
+5. Right click on the MainNavigator.html and click Open with Live Server
+
+6. The Algorithm Visualizer will pop up in the default browser
