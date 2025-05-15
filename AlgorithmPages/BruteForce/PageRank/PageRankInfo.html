@@ -1,0 +1,43 @@
+<!-- PageRank Description -->
+<div id="description">
+  <h3 id="descriptionHeader">PageRank</h3>
+  <p>
+    PageRank is an algorithm used by Google Search to rank web pages based on their importance. It assigns a numerical weight to each element in a hyperlinked set, with the idea that more important pages are likely to be linked to by other pages. PageRank uses the link structure of the web to determine the importance of a page.
+    <br><br>
+    The basic steps of the algorithm are:
+    <br><br>
+    1. <strong>Assign Initial Rank</strong>: Start by giving each page an equal rank value.
+    <br><br>
+    2. <strong>Distribute Rank</strong>: Pages with more incoming links distribute their rank to other linked pages. The rank is divided evenly among the links on the page.
+    <br><br>
+    3. <strong>Iterate Until Convergence</strong>: Repeat the distribution process until the ranks of pages converge to stable values.
+    <br><br>
+    <strong>Note:</strong> PageRank works best when the web pages are well interconnected and the link structure is meaningful.
+  </p>
+</div>
+
+<!-- PageRank Pseudocode -->
+<div id="pseudocode">
+  <pre>
+    <code>
+    procedure pageRank(pages, d, tolerance)
+      initialize each page with a rank of 1
+      repeat until ranks converge or max iterations reached:
+        for each page do
+          rank = (1 - d) / total pages
+          for each incoming link to page do
+            rank += d * (rank of linking page) / number of links on the linking page
+          end for
+        end for
+      end repeat
+    end procedure
+    </code>
+  </pre>
+</div>
+
+<!-- PageRank References -->
+<div id="references">
+  <ol id="referencesList">
+    <li><a href="https://en.wikipedia.org/wiki/PageRank" target="_blank">Wikipedia: PageRank</a></li>
+  </ol>
+</div>

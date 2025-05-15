@@ -1,0 +1,55 @@
+<!-- Algorithm Description -->
+<div id="description">
+    <h3 id="descriptionHeader">Breadth-First Search</h3>
+    <p>
+      Given a undirected graph represented by an adjacency list adj, where each adj[i] represents the list of vertices connected to vertex i. 
+      Perform a Breadth First Traversal (BFS) starting from vertex 0, visiting vertices from left to right according to the adjacency list, 
+      and return a list containing the BFS traversal of the graph. Imagine ripples spreading out from a pebble dropped in water; BFS visits 
+      all the neighbors at the current distance before moving to neighbors at the next distance level.
+    </p> <br> <br>
+
+    <p><strong>BFS Steps:</strong></p> <br>
+    <p>1. Choose a starting vertex</p> <br>
+    <p>2. Mark the starting vertex as visited</p> <br>
+    <p>3. Create a queue and add the starting vertex to it</p> <br>
+    <p>4. While the queue is not empty </p> <br>
+    <p style="padding-left: 10%;">a. Remove the vertex at the front of the queue</p> <br>
+    <p style="padding-left: 10%;">b. For each unvisited neighbor of the current vertex, mark as visited and add to the queue</p>
+
+  </div>
+  
+  <!-- AlgorithmName Psuedocode -->
+  <div id="pseudocode">
+    <pre>
+      <code>
+procedure bfs(adj, start)
+  vertices <- length(adj)
+
+  res <- []
+  queue <- []
+
+  visited <- [false] * length(vertices)
+
+  queue.add(start)
+
+  while queue do
+    curr <- queue.pop(0)
+    res.add(curr)
+
+    for x <- adj[curr] do
+      if not visited[x] then
+        visited[x] <- true
+        queue.add(x)
+
+  return res
+end procedure
+      </code>
+    </pre>
+  </div>
+  
+  <!-- AlgorithmName References -->
+  <div id="references">
+    <ol id="referencesList">
+      <li><a href="https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/" target="_blank">GeeksforGeeks: BFS</a></li>
+    </ol>
+  </div>

@@ -1,0 +1,45 @@
+<!-- Algorithm Description -->
+<div id="description">
+    <h3 id="descriptionHeader">0/1 Knapsack Problem</h3>
+    <p>The 0/1 Knapsack problem is a classic combinatorial optimization problem. You are given a set of items, each with a 
+      weight and a value, and a knapsack with a maximum weight capacity. The goal is to determine 1  which items to include 
+      in the knapsack to maximize the total value without exceeding the weight capacity. The "0/1" constraint means that for each item, 
+      you can either take it entirely (1) or not take it at all (0); you cannot take a fraction of an item.Imagine you're a thief trying 
+      to fill your knapsack. You have various valuable items, but each has a certain weight. 
+      Your knapsack can only hold a limited total weight. You want to choose the items that give you the most total value 
+      without making your knapsack too heavy. You can't break the items; you either take the whole thing or leave it behind.</p>
+  </div>
+  
+  <!-- AlgorithmName Psuedocode -->
+  <div id="pseudocode">
+    <pre>
+      <code>
+/* 
+table represents the best value for each item at each capacity, 
+W is capacity, v is values, w is weights, and n is number of items
+/*
+procedure knapsack(table, W, v, w, n)
+  for i <- 0; i <= n; i++ do
+      for j <-0; j <= W; j++ do
+          if i == 0 or j == 0 then
+              table[i][j] <- 0
+          else then
+              pick <- 0
+              if w[i - 1] <= j then
+                  pick <- v[i - 1] + table[i - 1][j - w[i - 1]]
+              
+              notPick <- table[i - 1][j]
+              table[i][j] <- max(pick, notPick)
+  
+  return table[table.length - 1][table[0].length - 1]
+end procedure
+      </code>
+    </pre>
+  </div>
+  
+  <!-- AlgorithmName References -->
+  <div id="references">
+    <ol id="referencesList">
+      <li><a href="https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/" target="_blank">GeeksforGeeks: 0/1 Knapsack Problem</a></li>
+    </ol>
+  </div>

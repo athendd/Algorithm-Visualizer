@@ -1,0 +1,70 @@
+<!-- Dijkstra's Shortest Path Description -->
+<div id="description">
+  <h3 id="descriptionHeader">Dijkstra's Shortest Path</h3>
+  <p>
+    An algorithm designed to find the shortest path from one vertex to all other vertices. It does 
+    this by repeatedly selecting the nearest unvisited vertex and calculating the distance to all 
+    of the unvisited neighboring vertices. Broadly speaking, the algorithm is used for solving 
+    single-source shortest path problems for directed or undirected paths, exluding those with 
+    negative edges, and the output of the algorithm is often referred to as the shortest path 
+    spanning tree. By terminating the algorithm early, it is also possible to determine the 
+    shortest path to a specific vertex from the source vertex, as opposed to the entire shortest 
+    path spanning tree.
+    <br><br>
+
+    <u>Dijkstra's Shortest Path Steps:</u>
+    <br><br>
+
+    <strong>1. Choose A Source Vertex:</strong> Select one of the vertices in the graph to start from and set it 
+    as the current vertex, this will be the source vertex.
+    <br><br>
+
+    <strong>2 Choose New Vertex:</strong> Choose the unvisited vertex with the shortest distance from the current 
+    vertex to be the new current vertex (this will be itself if the current vertex is the source vertex).
+    <br><br>
+
+    <strong>3. Calulate Neighbor Distances:</strong> For each of the current vertex's unvisited neighbor vertices, 
+    calculate the distance from the source vertex and update the distance if the new calculated distance is lower.
+    <br><br>
+
+    <strong>4. Mark As Visited:</strong> After calculating all of the unvisited neighbor distances, mark the current 
+    vertex as visited to indicate that it doesn't need to be checked again.
+    <br><br>
+
+    <strong>5. Visit All Vertices:</strong> Repeat steps 2-4 until all vertices are visited. The end result will be the 
+    shortest path from the source vertex to every other vertex in the graph, i.e. the shortest path spanning tree.
+    <br>
+  </p>
+</div>
+
+<!-- Dijkstra's Shortest Path Pseudocode -->
+<div id="pseudocode">
+  <pre>
+    <code>
+      function Dijkstra(Graph, source):
+        for each vertex v in Graph.Vertices:
+          dist[v] ← INFINITY
+          prev[v] ← UNDEFINED
+          add v to Q
+        dist[source] ← 0
+        while Q is not empty:
+          u ← vertex in Q with minimum dist[u]
+          remove u from Q
+          for each neighbor v of u still in Q:
+            alt ← dist[u] + Graph.Edges(u, v)
+            if alt < dist[v]:
+              dist[v] ← alt
+              prev[v] ← u
+        return dist[], prev[]
+    </code>
+  </pre>
+</div>
+
+<!-- Dijkstra's Shortest Path References -->
+<div id="references">
+  <ol id="referencesList">
+    <li><a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" target="_blank">Wikipedia: Dijkstra's algorithm</a></li>
+    <li><a href="https://www.w3schools.com/dsa/dsa_algo_graphs_dijkstra.php" target="_blank">w3schools: DSA Dijkstra's Algorithm</a></li>
+    <li><a href="https://www.tutorialspoint.com/data_structures_algorithms/dijkstras_shortest_path_algorithm.htm" target="_blank">TutorialPoint: Dijkstra's Shortest Path Algorithm</a></li>
+  </ol>
+</div>

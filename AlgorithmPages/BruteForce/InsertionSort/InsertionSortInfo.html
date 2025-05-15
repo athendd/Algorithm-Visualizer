@@ -1,0 +1,52 @@
+<!-- Algorithm Description -->
+<div id="description">
+    <h3 id="descriptionHeader">Insertion Sort</h3>
+    <p>
+      A comparison-based sorting algorithm. It works similarly to how 
+      we sort playing cards in our hands—by taking one card at a time and 
+      inserting it into its correct position relative to the already sorted 
+      portion of the hand.
+      <br>
+      <br>
+      Insertion Sort Steps:
+      <br>
+      <br>
+      1. Divide given list into sorted and unsorted part
+      <br>
+      <br>
+      2. The first element is labeled as sorted
+      <br>
+      <br>
+      3. Picks an element from unsorted part of list and inserts it into its correct position
+      in the sorted part of the list by shifting elements
+      <br>
+      <br>
+      4. Process is repeated until all elements are sorted
+    </p>
+  </div>
+  
+  <!-- AlgorithmName Psuedocode -->
+  <div id="pseudocode">
+    <pre>
+      <code>
+procedure insertionSort(array)
+  for i <- 1 to length(array) - 1 do
+    key <- array[i]
+    j <- i - 1
+    while j >= 0 and array[j] > key do
+      array[j + 1] <- array[j]
+      j <- j - 1
+    end while
+    array[j + 1] <- key
+  end for
+end procedure
+      </code>
+    </pre>
+  </div>
+  
+  <!-- AlgorithmName References -->
+  <div id="references">
+    <ol id="referencesList">
+      <li><a href="https://www.geeksforgeeks.org/insertion-sort-algorithm/" target="_blank">GeeksforGeeks: Insertion Sort Algorithm</a></li>
+    </ol>
+  </div>

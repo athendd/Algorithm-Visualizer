@@ -1,0 +1,39 @@
+<!-- Algorithm Description -->
+<div id="description">
+  <h3 id="descriptionHeader">Fibonacci Sequence</h3>
+  <p> <strong>A sequence where the next term is the sum of the previous two terms. </strong>
+    <br>
+    <br> <strong>Example of a Fibonacci Sequence: </strong> 0, 1, 1, 2, 3, 5, 8, 13, 21<br>
+    <br>
+        <br> The sequence starts off with two numbers, 0 and 1. When those are summed up, it equals 1. The second 1 in the sequence then gets added to the
+        previous 1 to equal 2. 2 then adds to the previous 1 to equal 2. The sequence continues to build by summing up the latest 
+        number to the previous number. 
+    <br>
+</div>
+
+<!-- AlgorithmName Psuedocode -->
+<div id="pseudocode">
+  <pre>
+    <code>
+      const number = parseInt(prompt('Enter the number of terms: '));
+                    let n1 = 0, n2 = 1, nextTerm;
+
+                    console.log('Fibonacci Series:');
+
+                    for (let i = 1; i <= number; i++) {
+                        console.log(n1);
+                        nextTerm = n1 + n2;
+                        n1 = n2;
+                        n2 = nextTerm;
+                    }
+    </code>
+  </pre>
+</div>
+
+<!-- AlgorithmName References -->
+<div id="references">
+  <ol id="referencesList">
+    <li><a href="https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/" target="_blank">GeekforGeeks: Nth Fibonacci Number</a></li>
+    <li><a href="https://www.programiz.com/javascript/examples/fibonacci-series" target="_blank">ProgramZ: Fibonacci Series</a></li>
+  </ol>
+</div>

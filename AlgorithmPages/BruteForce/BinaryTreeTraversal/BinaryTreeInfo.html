@@ -1,0 +1,46 @@
+<!-- Algorithm Description -->
+<div id="description">
+    <h3 id="descriptionHeader">Binary Tree Traversal Inorder</h3>
+
+    <p>
+      A binary tree is a hierarchical data structure in which each node has at most two children, typically referred to as: left child, right child.
+      Tree traversal refers to the process of visiting every node in a tree exactly once in a specific order. 
+    </p> <br>
+    <p style="padding-bottom: 2%;"><strong>For in-order traversal, you visit:</strong></p> 
+
+    <ol style="padding-left: 10%;">
+      <li>The left subtree</li> <br>
+      <li>The root node</li> <br>
+      <li>The right subtree</li>
+    </ol>
+  </div>
+  
+  <!-- AlgorithmName Psuedocode -->
+  <div id="pseudocode">
+    <pre>
+      <code>
+procedure inorderTraversal(root)
+  result <- []
+
+  procedure traverse(node)
+    result.push(node)
+    if node.left then
+      traverse(node.left)
+    if node.right then
+      traverse(node.right)
+  end procedure
+
+  traverse(root)
+  return result
+end procedure
+      </code>
+    </pre>
+  </div>
+  
+  <!-- AlgorithmName References -->
+  <div id="references">
+    <ol id="referencesList">
+      <li><a href="https://en.wikipedia.org/wiki/Tree_traversal" target="_blank">Wikipedia: Tree Traversal</a></li>
+      <li><a href="https://www.w3schools.com/dsa/dsa_algo_binarytrees_inorder.php" target="_blank">W3 Schools: DSA In-order Traversal</a></li>
+    </ol>
+  </div>

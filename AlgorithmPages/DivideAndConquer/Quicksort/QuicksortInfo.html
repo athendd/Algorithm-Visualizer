@@ -1,0 +1,69 @@
+<!-- Quicksort Description -->
+<div id="description">
+  <h3 id="descriptionHeader">Quicksort</h3>
+  <p>
+    A divide and conquer sorting algorithm that selects a "pivot"
+    element from the given array and partitions the remaining elements
+    into two sub-arrays based on whether they are smaller or larger than 
+    the pivot. The algorithm recursively repeats this step until the input
+    is sorted.
+    <br>
+    <br><u>Quicksort Steps:</u><br>
+    <br>
+    1. <strong>Choose a Pivot</strong>: Select an element from the array as the pivot. The choice of pivot can vary (e.g., first element, last element, random element, or median).<br>
+    <br>
+    2. <strong>Partition the Array</strong>: Rearrange the array around the pivot. After partitioning, all elements smaller than the pivot will be on its left, and all elements greater than the pivot will be on its right. The pivot is then in its correct position, and we obtain the index of the pivot.<br>
+    <br>
+    3. <strong>Recursively Call</strong>: Recursively apply the same process to the two partitioned sub-arrays (left and right of the pivot).<br>
+    <br>
+    4. <strong>Base Case</strong>: The recursion stops when there is only one element left in the sub-array, as a single element is already sorted.<br>
+  </p>
+</div>
+
+<!-- Quicksort Pseudocode -->
+<div id="pseudocode">
+  <pre>
+    <code>
+procedure quickSort(left, right)
+  if right-left <= 0
+    return
+  else
+    pivot = A[right]
+    partition = partitionFunc(left, right, pivot)
+    quickSort(left, partition-1)
+    quickSort(partition+1, right)
+  end if
+end procedure
+
+function partitionFunc(left, right, pivot)
+  leftPointer = left
+  rightPointer = right - 1
+  while True do
+    while A[++leftPointer] < pivot do
+    //do-nothing
+    end while
+
+    while rightPointer > 0 && A[--rightPointer] > pivot do
+      //do-nothing
+    end while
+
+    if leftPointer >= rightPointer
+      break
+    else
+      swap leftPointer, rightPointer
+    end if
+  end while
+  swap leftPointer, right
+  return leftPointer
+end function
+    </code>
+  </pre>
+</div>
+
+<!-- Quicksort References -->
+<div id="references">
+  <ol id="referencesList">
+    <li><a href="https://www.geeksforgeeks.org/quick-sort-algorithm/" target="_blank">GeeksforGeeks: Quick Sort Algorithm</a></li>
+    <li><a href="https://www.tutorialspoint.com/data_structures_algorithms/quick_sort_algorithm.htm" target="_blank">TutorialsPoint: Quick Sort</a></li>
+  </ol>
+</div>

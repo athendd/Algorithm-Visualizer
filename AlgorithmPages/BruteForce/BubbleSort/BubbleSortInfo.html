@@ -1,0 +1,43 @@
+<!-- Algorithm Description -->
+<div id="description">
+    <h3 id="descriptionHeader">Bubble Sort</h3>
+    <p>
+      A brute force algorithm that repeatedly swaps adjacent elements 
+      to get them into the ascending order. The algorithm is named for the way larger elements
+      bubble up to the end of the list. Considered to be the simplest of the sorting algorithms. 
+      Repeatedly compares adjacent elements in the list and swaps them if the first element is larger
+      than the second. After each pass the largest unsorted element will go to the open position at the end
+      of the list. For example, in the first pass the largest element will go to the end of the list. Each pass
+      only sorts the unsorted elements. The algorithm will continue to make passes until
+      no more swaps are needed, which means that the list is sorted. 
+    </p>
+  </div>
+  
+  <!-- AlgorithmName Psuedocode -->
+  <div id="pseudocode">
+    <pre>
+      <code>
+      procedure bubblesort(array, array_length)
+        for i <- 0 to array_length - 1 do
+          swapped <- false
+          for j <- 0 to array_length - i - 1 do
+            if array[j] > array[j+1] then
+              array[j], array[j+1] <- array[j+1], array[j]
+              swapped <- true
+            end if
+          end for
+          if swapped equals false then
+            break
+          end if
+        end for
+      end procedure
+        </code>
+    </pre>
+  </div>
+  
+  <!-- AlgorithmName References -->
+  <div id="references">
+    <ol id="referencesList">
+      <li><a href="https://www.geeksforgeeks.org/bubble-sort-algorithm/" target="_blank">GeeksforGeeks: Bubble Sort Algorithm</a></li>
+    </ol>
+  </div>

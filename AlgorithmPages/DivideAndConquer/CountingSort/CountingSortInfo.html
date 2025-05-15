@@ -1,0 +1,60 @@
+<!-- Algorithm Description -->
+<div id="description">
+    <h3 id="descriptionHeader">Counting Sort</h3>
+    <p>
+      Counting Sort is a non-comparison-based sorting algorithm. It is particularly efficient when the 
+      range of input values is small compared to the number of elements to be sorted. 
+      The basic idea behind Counting Sort is to count the frequency of each distinct element in the 
+      input array and use that information to place the elements in their correct sorted positions.
+    </p>
+    <br>
+    <br>
+    <p><strong>Counting Sort Steps:</strong></p>
+    <br>
+    <br>
+    <p>1. Find maximum element in given list</p> <br> <br>
+    <p>2. Create counting list with length equal to maximum element plus 1</p> <br> <br>
+    <p>3. Store count of each unique element in given list at their respective indices in the counting list</p> <br> <br>
+    <p>4. Modify the counting list to store the cumulative sum of each element</p> <br> <br>
+    <p>5. Iterate through the given list again, using the cumulative sums in the counting list to determine the correct position of each element in the sorted output list</p>
+
+  </div>
+  
+  <!-- AlgorithmName Psuedocode -->
+  <div id="pseudocode">
+    <pre>
+      <code>
+procedure countingSort(arr)
+  n <- length(arr)
+  m <- 0
+
+  for i <- 0; i < n; i++ do 
+    m = max(m, arr[i])
+  
+  countarray <- [0] * (m + 1)
+
+  for i <- 0; i < n; i++ do
+    countarray[arr[i]]++
+  
+  for i <- 1; i <= m; i++ do
+    countarray[i] += countarray[i - 1] 
+
+  outputarray <- [] * n
+
+  for i <- n - 1; i >= 0; i-- do
+    outputarray[countarray[arr[i]] - 1] <- arr[i]
+    countarray[arr[i]]--
+  
+  return outputarray
+  
+end procedure
+      </code>
+    </pre>
+  </div>
+  
+  <!-- AlgorithmName References -->
+  <div id="references">
+    <ol id="referencesList">
+      <li><a href="https://www.examplelink.com" target="_blank">Example Link</a></li>
+    </ol>
+  </div>

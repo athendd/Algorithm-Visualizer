@@ -1,0 +1,78 @@
+<!-- Algorithm Description -->
+<div id="description">
+    <h3 id="descriptionHeader">Heapsort</h3>
+    <p>
+      A comparison based sorting algorithm that uses a heap data strucutre to sort elements.
+      A heap is a tree based data structure with two different forms, min-heap and max-heap. A 
+      min-heap structure is where each parent node has a value less than or equal to that of their
+      children nodes. A max-heap strucutre is where each parent node has a value greater than or 
+      equal to that of its children nodes. Heapsort builds a heap then repeatedly extracts the largest
+      element (root node) and places it at the end of the sorted part of the array while maintaining the 
+      max-heap property. 
+      <br>
+      <br>
+      Heapsort Steps:
+      <br>
+      <br>
+      1. Turn the given list into a max-heap
+      <br>
+      <br>
+      2. Swap the root node (largest element) with the last element in the heap
+      <br>
+      <br>
+      3. Restore the heap to a max-heap by performing swaps if necessary
+      <br>
+      <br>
+      4. Remove the last element from the heap
+      <br>
+      <br>
+      5. Heapify the heap to retain the max-heap property
+      <br>
+      <br>
+      6. Repeatedly perform steps, 3, 4, and 5 until the heap size is reduced to 1
+    </p>
+  </div>
+  
+  <!-- AlgorithmName Psuedocode -->
+  <div id="pseudocode">
+    <pre>
+      <code>
+procedure heapify(array, array_length, index):
+  largest <- index
+  left <- 2 * index + 1
+  right <- 2 * i + 2
+  if left < array_length and array[left] > array[largest] then
+    largest <- left
+  end if
+  
+  if right < array_length and array[right] > array[largest] then
+    largest <- right
+  end if
+
+  if largest is not equal to index
+    swap array[index] and array[largest]
+    heapify(array, array_length, largest)
+  end if
+end procedure
+
+procedure heapSort(array)
+  for i <- Math.floor(array_length / 2) - 1; i >= 0; i-- do
+    heapify(array, array_length, i)
+  end for
+
+  for i <- array_length - 1; i > 0; i-- do
+    swap array[0] and array[i]
+    heapify(array, i, 0)
+  end for
+end procedure
+      </code>
+    </pre>
+  </div>
+  
+  <!-- AlgorithmName References -->
+  <div id="references">
+    <ol id="referencesList">
+      <li><a href="https://www.geeksforgeeks.org/heap-sort/" target="_blank">GeeksforGeeks: Heapsort Algorithm</a></li>
+      <li><a href="https://builtin.com/data-science/heap-sort" target="_blank">builtin: Heap Sort, Explained</a></li>
+    </ol>
+  </div>

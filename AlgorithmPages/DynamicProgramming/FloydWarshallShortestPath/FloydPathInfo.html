@@ -1,0 +1,63 @@
+<!-- Floyd-Warshall Shortest Path Description -->
+<div id="description">
+  <h3 id="descriptionHeader">Floyd-Warshall Shortest Path</h3>
+  <p>
+    The Floyd-Warshall algorithm is sometimes abbreviated as the WFI algorithm and is used 
+    to find the shortest paths between all pairs of vertices in a weighted graph, even those 
+    with negative edge weights (excluding negative cycles). It works by iteratively considering 
+    each vertex as an intermediate point in paths between other vertices, updating the shortest 
+    path distances in the graph-derived adjacency matrix.
+    <br><br>
+
+    The psuedocode and middle animation panels depict an undirected, positive, integers-only 
+    Floyd-Warshall algorithm, however, with a few modifications, the Floyd-Warshall algorithm
+    can work with negative edge weights (assuming there's no negetive cycles), as well as with
+    directed edges.
+    <br><br>
+
+    <u>Floyd-Warshall Shortest Path Steps:</u>
+    <br><br>
+
+    <strong>1. Translate Graph to Matrix:</strong> Construct an adjacency matrix, A0, with all the edge costs 
+    present in the graph. If there is no path between two vertices, mark the value as ∞ (infinity).
+    <br><br>
+
+    <strong>2. Update Shortest Distance:</strong> Derive another adjacency matrix A1 from A0, keeping the first row and 
+    first column of the original adjacency matrix intact in A1. For the remaining values, say A1[i,j], 
+    if A0[i,j] > A0[i,k] + A0[k,j] then replace A1[i,j] with A0[i,k] + A0[k,j]. Otherwise, do not change the values. 
+    In this step, k = 1 (first vertex acting as pivot).
+    <br><br>
+
+    <strong>3. Check All Vertices:</strong> Repeat Step 2 for all the vertices in the graph by changing the k 
+    value for every pivot vertex until the final matrix is achieved. The final adjacency matrix obtained is 
+    the final solution with all the shortest paths.
+    <br>
+  </p>
+</div>
+
+<!-- Floyd-Warshall Shortest Path Pseudocode -->
+<div id="pseudocode">
+  <pre>
+    <code>
+Floyd-Warshall(w, n)  // w: weights, n: number of vertices
+  for i = 1 to n do  // initialize, D (0) = [wij]
+    for j = 1 to n do 
+      d[i, j] = w[i, j];
+    for k = 1 to n do  // Compute D (k) from D (k-1)
+      for i = 1 to n do
+        for j = 1 to n do
+          if (d[i, k] + d[k, j] < d[i, j])
+            d[i, j] = d[i, k] + d[k, j];
+  return d[1..n, 1..n];
+    </code>
+  </pre>
+</div>
+
+<!-- Floyd-Warshall Shortest Path References -->
+<div id="references">
+  <ol id="referencesList">
+    <li><a href="https://blog.devgenius.io/floyd-warshall-algorithm-f004a01ae40e" target="_blank">DevGenius: Floyd Warshall Algorithm</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm" target="_blank">Wikipedia: Floyd-Warshall algorithm</a></li>
+    <li><a href="https://www.tutorialspoint.com/data_structures_algorithms/floyd_warshall_algorithm.htm" target="_blank">TutorialPoint: Floyd Warshall Algorithm</a></li>
+  </ol>
+</div>

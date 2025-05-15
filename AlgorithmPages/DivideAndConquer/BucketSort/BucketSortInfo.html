@@ -1,0 +1,43 @@
+<!-- Bucket Sort Description -->
+<div id="description">
+  <h3 id="descriptionHeader">Bucket Sort</h3>
+  <p>
+    A sorting algorithm that divides the input array into a number of buckets. Each bucket is then sorted individually, either using a different sorting algorithm or recursively applying the bucket sort algorithm. Finally, the sorted buckets are concatenated to form the sorted array.
+    <br>
+    <br>There are mainly three steps in the algorithm:<br>
+    <br>
+    1. <strong>Divide into Buckets</strong>: Distribute the elements of the input array into a fixed number of buckets. The range of values in each bucket is determined based on the input data.<br>
+    <br>
+    2. <strong>Sort Each Bucket</strong>: Sort the elements within each bucket. This can be done using another sorting algorithm (e.g., insertion sort) or recursively applying bucket sort.<br>
+    <br>
+    3. <strong>Concatenate Buckets</strong>: Combine the sorted buckets to form the final sorted array.<br>
+    <br>
+    <strong>Note:</strong> Bucket sort is most effective when the input data is uniformly distributed over a range.
+  </p>
+</div>
+
+<!-- Bucket Sort Pseudocode -->
+<div id="pseudocode">
+  <pre>
+    <code>
+    procedure bucketSort(array, n)
+      create n empty buckets
+      for each element in array do
+        insert element into the appropriate bucket
+      end for
+      for each bucket do
+        sort the bucket
+      end for
+      concatenate all buckets into the original array
+    end procedure
+    </code>
+  </pre>
+</div>
+
+<!-- Bucket Sort References -->
+<div id="references">
+  <ol id="referencesList">
+    <li><a href="https://www.geeksforgeeks.org/bucket-sort-2/" target="_blank">GeeksforGeeks: Bucket Sort Algorithm</a></li>
+    <li><a href="https://www.tutorialspoint.com/data_structures_algorithms/bucket_sort_algorithm.htm" target="_blank">TutorialsPoint: Bucket Sort</a></li>
+  </ol>
+</div>

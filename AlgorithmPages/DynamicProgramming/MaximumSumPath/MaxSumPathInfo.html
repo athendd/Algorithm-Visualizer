@@ -1,0 +1,84 @@
+<!-- Maximum Sum Path Description -->
+<div id="description">
+  <h3 id="descriptionHeader">Maximum Sum Path</h3>
+  <p>
+    The Maximum Sum Path algorithm is most often used in the context of binary trees and 
+    aims to find the path with the largest sum of node values, whereby a path can start 
+    and end at any node, but each node can only be used once per path. If the input is a 
+    binary tree, then the Maximum Sum Path algorithm will make use of the DFS algorithm 
+    within itself to traverse the tree and calculate the maximum sum of node values from
+    a path. This makes the Maximum Sum Path algorithm something of a modification of the 
+    DFS algorithm, if not an extension to it.
+    <br><br>
+
+    The psuedocode and middle animation panels depict a Maximum Sum Path algorithm made for 
+    binary tree inputs, however, with a few modifications, the Maximum Sum Path algorithm can
+    work with 2D arrays and matrices too.
+    <br><br>
+
+    <u>Maximum Sum Path Steps:</u>
+    <br><br>
+
+    <strong>1. Base Case:</strong> If the current node is null, return 0. 
+    <br><br>
+
+    <strong>2. Recursively Call:</strong> Recursively calculate the maximum path sum for the left and right subtrees. 
+    <br><br>
+
+    <strong>3. Calculate Path Sums:</strong>
+    <br>
+
+    <u>3.1. Calculate Left:</u> Calculate the maximum path sum that includes the current node and its left subtree 
+    (if it exists and has a positive contribution). 
+    <br>
+
+    <u>3.2. Calculate Right:</u> Calculate the maximum path sum that includes the current node and its right subtree 
+    (if it exists and has a positive contribution). 
+    <br>
+
+    <u>3.3. Calculate Both:</u> Calculate the maximum path sum that includes the current node and both left and 
+    right subtrees (if they exist and have positive contributions). 
+    <br><br>
+
+    <strong>4. Update Global Maximum:</strong> Update the overall maximum path sum (initially set to the minimum 
+    possible value) with the maximum of its current value and the newly calculated sums. 
+    <br><br>
+
+    <strong>5. Return Value:</strong> Return the maximum path sum that includes the current node and either its 
+    left or right subtree (whichever contributes more to the overall path sum). 
+    <br><br>
+
+    <strong>6. Final Result:</strong> The final value after recursion completes represents the maximum path sum 
+    from any sequence of nodes in the given binary tree.
+    <br>
+  </p>
+</div>
+
+<!-- Maximum Sum Path Pseudocode -->
+<div id="pseudocode">
+  <pre>
+    <code>
+function maxPathSum(root):
+    global maxPathSum = -infinity
+    function findMaxPathSum(node):
+        if node is null:  // Base case
+            return 0
+        leftSum = findMaxPathSum(node.left)
+        rightSum = findMaxPathSum(node.right)
+        currentPathSum = node.value + max(leftSum, rightSum)
+        maxPathSum = max(maxPathSum, node.value + leftSum + rightSum)
+        return max(0, currentPathSum)  // Ensure we don't return a negative value
+    findMaxPathSum(root)
+    return maxPathSum
+    </code>
+  </pre>
+</div>
+
+<!-- Maximum Sum Path References -->
+<div id="references">
+  <ol id="referencesList">
+    <li><a href="https://algo.monster/liteproblems/124" target="_blank">AlgoMonster: Binary Tree Maximum Path Sum</a></li>
+    <li><a href="https://compositecode.blog/2024/05/29/1-finding-the-maximum-sum-path-in-a-binary-tree/" target="_blank">CompositeCode: Finding the Maximum Sum Path in a Binary Tree</a></li>
+  </ol>
+  <br>
+</div>

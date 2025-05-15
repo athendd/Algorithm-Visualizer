@@ -1,0 +1,119 @@
+<!-- Algorithm Description -->
+<div id="description">
+  <h3 id="descriptionHeader">Prim's Minimum Spanning Tree</h3>
+  <p>The collection of edges in a graph, that connects all vertices, with a minimum sum of edge weights.
+
+    Prim's algorithm finds the Minimum Spanning Tree by first including a random vertex to the MST. The algorithm then finds the vertex with the lowest edge weight from the current MST, and includes that to the MST. Prim's algorithm keeps doing this until all nodes are included in the MST.
+
+    <br><br>
+
+  <u> Prim's Minimum Spanning Tree Steps:</u>
+  <br><br>
+
+  <strong>1. Choose A Source Vertex:</strong> Select one of the vertices in the graph to start from and set it 
+  as the current vertex, this will be the source vertex.
+  <br><br>
+
+  <strong>2 Compare Edges:</strong> Compare the edges going out from the MST. 
+  Choose the edge with the lowest weight that connects a vertex among the MST vertices to a vertex outside the MST.
+  <br><br>
+
+  <strong>3. Add:</strong> Add that edge and vertex to the Minimum Spanning Tree.
+  <br><br>
+
+  <strong>4. Repeat:</strong> Keep doing step 2 and 
+  3 until all vertices belong to the Minimum Spanning Tree.
+  <br><br>
+    
+    </p>
+</div>
+
+<!-- AlgorithmName Psuedocode -->
+<div id="pseudocode">
+  <pre>
+    <code>
+
+              class PriorityQueue {
+                constructor() {
+                  this.queue = [];
+                }
+
+                enqueue(vertex, priority) {
+                  this.queue.push({vertex, priority});
+                  this.sort();
+                }
+
+                dequeue() {
+                  return this.queue.shift();
+                }
+
+                sort() {
+                  this.queue.sort((a, b) => a.priority - b.priority);
+                }
+
+                isEmpty() {
+                  return !this.queue.length;
+                }
+              }
+
+
+              class Graph {
+                constructor(vertices) {
+                  this.vertices = vertices;
+                  this.edges = Array(vertices).fill(null).map(() => Array(vertices).fill(Infinity));
+                  this.visited = Array(vertices).fill(false);
+                }
+
+                addEdge(src, dest, weight) {
+                  this.edges[src][dest] = weight;
+                  this.edges[dest][src] = weight;
+                }
+
+                primsMST() {
+                  this.visited[0] = true;
+                  let pq = new PriorityQueue();
+                  let result = [];
+
+                  for (let i = 0; i < this.vertices - 1; i++) {
+                    let minVertex = this.getMinVertex();
+                    this.visited[minVertex] = true;
+
+                    for (let j = 0; j < this.vertices; j++) {
+                      if (this.edges[minVertex][j] != Infinity && !this.visited[j]) {
+                        pq.enqueue(j, this.edges[minVertex][j]);
+                      } 
+                    }
+
+                    let edge = pq.dequeue();
+                    if (edge) result.push(edge);
+                  }
+
+                  return result;
+                }
+
+                getMinVertex() {
+                  let min = Infinity;
+                  let minVertex = -1;
+
+                  for (let i = 0; i < this.vertices; i++) {
+                    if (!this.visited[i] && this.edges[0][i] < min) {
+                      min = this.edges[0][i];
+                      minVertex = i;
+                    }
+                  }
+
+                  return minVertex;
+                }
+              }
+
+    </code>
+  </pre>
+</div>
+
+<!-- AlgorithmName References -->
+<div id="references">
+  <ol id="referencesList">
+    <li><a href="https://www.w3schools.com/dsa/dsa_algo_mst_prim.php" target="_blank">W3 Schools Prim's MST</a></li>
+    <li><a href="https://reintech.io/blog/javascript-prims-minimum-spanning-trees" target="_blank">Code</a></li>
+  </ol>
+</div>

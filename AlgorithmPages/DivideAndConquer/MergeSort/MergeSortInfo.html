@@ -1,0 +1,60 @@
+<!-- Algorithm Description -->
+<div id="description">
+  <h3 id="descriptionHeader">Merge Sort</h3>
+  <p>
+    Merge Sort is a divide-and-conquer algorithm that splits an array into halves, recursively sorts each half, and then merges the sorted halves to produce the final sorted array. This algorithm is efficient with a time complexity of O(n log n), making it suitable for large datasets.
+  </p>
+</div>
+
+<!-- Merge Sort Pseudocode -->
+<div id="pseudocode">
+  <pre>
+    <code>
+    procedure mergeSort(array)
+      if length of array > 1
+        mid = length of array / 2
+        leftHalf = array[0..mid]
+        rightHalf = array[mid+1..end]
+
+        mergeSort(leftHalf)
+        mergeSort(rightHalf)
+
+        merge(leftHalf, rightHalf, array)
+      end if
+    end procedure
+
+    procedure merge(left, right, array)
+      i = 0, j = 0, k = 0
+      while i < length of left and j < length of right do
+        if left[i] < right[j]
+          array[k] = left[i]
+          i = i + 1
+        else
+          array[k] = right[j]
+          j = j + 1
+        k = k + 1
+      end while
+
+      while i < length of left do
+        array[k] = left[i]
+        i = i + 1
+        k = k + 1
+      end while
+
+      while j < length of right do
+        array[k] = right[j]
+        j = j + 1
+        k = k + 1
+      end while
+    end procedure
+    </code>
+  </pre>
+</div>
+
+<!-- Merge Sort References -->
+<div id="references">
+  <ol id="referencesList">
+    <li><a href="https://www.geeksforgeeks.org/merge-sort/" target="_blank">GeeksforGeeks: Merge Sort</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Merge_sort" target="_blank">Wikipedia: Merge Sort</a></li>
+  </ol>
+</div>
